@@ -1,87 +1,59 @@
+import LeftSideBar from '@/components/LeftSideBar';
 import Link from 'next/link';
 import { title } from 'process';
 import React from 'react'
-import { BiHomeCircle, BiUser } from 'react-icons/bi';
-import { BsBell, BsBookmark, BsThreeDots, BsTwitter } from "react-icons/bs";
-import { HiOutlineHashtag } from 'react-icons/hi';
-import { HiEnvelope } from 'react-icons/hi2';
 
-const NAVIGATION_ITEMS=[
-  {
-    title:'twitter',
-    icon:BsTwitter
-  },
 
-  {
-    title:'Home',
-    icon:BiHomeCircle
-  },
-  {
-    title:'Explore',
-    icon:HiOutlineHashtag
-  },
-  {
-    title:'Notifications',
-    icon:BsBell
-  },
-  {
-    title:'Messages',
-    icon:HiEnvelope
-  },
-  {
-    title:'Bookmarks',
-    icon:BsBookmark
-  },
-  {
-    title:'Profile',
-    icon:BiUser
-  }
-
-]
 const Home = () => {
   return (
     <div className="w-full h-full flex justify-center items-center relative bg-black" >
       <div className='max-w-screen-xl w-full h-full flex relative'>
         {/* left sidebar for navigation or header */}
-        <section className="fixed w-[250px] flex flex-col items-stretch h-screen">
-          <div className='flex flex-col items-stretch h-full space-y-4 mt-4'>
-            {NAVIGATION_ITEMS.map((item)=>(
-            <Link 
-            className='hover:bg-white/10 text-2xl transition duration-200 flex items-center justify-start w-fit space-x-4 rounded-3xl py-2 px-6'
-            href={'/${item.title.toLowerCase()}'}
-            key={item.title}>
-              <div>
-                <item.icon/>
-              </div>
-              {item.title !== 'twitter'&& <div>{item.title}</div>}
-            </Link>
-            ))}
-            <button className='rounded-full m-4 bg-primary p-4 text-2xl text-center hover:bg-opacity-70 transition duration-200'>
-              Tweet
-            </button>
+        <LeftSideBar />
+        <main className='ml-[275px] flex  w-[600px]  h-full min-h-screen flex-col border-l-[0.5px] border-r-[0.5px] border-gray-600'>
+          <h1 className='text-xl font-bold p-6'>Home</h1>
+          <div className='border-t-[0.5px]  px-4  border-b-[0.5px]  flex items-stretch  py-4  space-x-2  border-gray-600  relative'>
+            <div className='w-10 h-10 bg-slate-400  rounded-full  flex-none'></div>
+            <div className='flex flex-col w-full h-full'>
+              <input 
+                type="text"
+                className="w-full  h-full text-2xl placeholder:text-gray-600 bg-transparent border-b-[0.5px] border-gray-600 p-4 outline-none border-none"
+                placeholder="what's happening?"
+              />
+              <div className='w-full justify-between items-center flex'>
+                <div></div>
+                <div className='w-full max-w-[100px]'>
+                  <button className='rounded-full bg-primary px-4  py-2 w-full text-lg text-center hover:bg-opacity-70 transition duration-200  font-bold'>
+                    Tweet
+                  </button>
+                </div>
+                </div>
+                </div>
           </div>
-          <button className='rounded-full flex items-center space-x-2 m-4 bg-transparent p-4 text-center hover:bg-white/10 transition duration-200 w-full justify-between'>
-              <div className='flex items-center space-x-2'>
-                  <div className='rounded-full bg-slate-400 w-8 h-8'></div>
-                  <div className='text-left text-sm'>
-                  <div className='font-semibold'>Club of Coders</div>
-                  <div className=''>@clubofcoderscom</div>
+          <div className='flex flex-col'>
+            {
+              Array.from({length :5}).map((_,i)=>(
+                <div key={i}  className='border-t-[0.5px]  px-4  border-b-[0.5px]  flex  space-x-4'>
+                  <div>
+                    <div className='w-10 h-10 bg-slate-200  rounded-full'/>
                   </div>
-              </div>
-              
-              <div>
-                <BsThreeDots/>
+                  <div>
+                      <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div></div>
+                      <div></div>
 
-              </div>
-
-          </button>
-
-          
-         </section>
-        <main></main>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </main>
         <section></section>
-
-      </div>
+        </div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ const Home = () => {
         {/* left sidebar for navigation or header */}
         <LeftSideBar />
         <MainComponent/>
-        <section className='absolute w-[275px]  sticky top-2  overflow-scroll mt-2 right-0 flex flex-col items-stretch h-screen px-6 '>
+        <section className='absolute w-[275px]  sticky top-2 mt-2 right-0 flex flex-col items-stretch h-screen px-6 '>
           <div>
             <div className='relative w-full h-full group'>
                 
